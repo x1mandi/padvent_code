@@ -66,6 +66,13 @@ for ( sort keys %$cookies ) {
 
 #write some statistics about how many types of cookies we have per country
 $stats->write( 'A1', [\@countries], $format2 );
-
+#Reset the counter
+$i = 0;
+#count how many cookies we country wise.
+for ( sort keys %$cookies ) {
+  #Place Your cookies to the baking sheet
+  $stats->write( $i, 1, scalar @{$cookies->{$_}} , $format3 );
+  $i++;
+}
 
 $merry->close();
